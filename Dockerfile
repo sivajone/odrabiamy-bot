@@ -6,7 +6,7 @@ COPY package.json /tmp
 RUN jq '{ scripts, main, type, dependencies, devDependencies }' < /tmp/package.json > /tmp/deps.json
 
 # Actual image
-FROM node:18.12-bullseye-slim
+FROM node:lts-slim
 WORKDIR /app
 
 # Install dependencies

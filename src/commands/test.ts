@@ -4,9 +4,12 @@ import type { Command } from "../main";
 import { scrape } from "../scrape";
 import fs from "fs-extra";
 import path from "path";
+import dotenv from "dotenv";
 
 import { ErrorType } from "../scrape";
 import tests from "../test-list";
+
+dotenv.config({ path: path.join(process.cwd(), ".env-dev") });
 
 export const command = {
 	data: new SlashCommandBuilder()
@@ -26,7 +29,7 @@ export const command = {
 				.setDescription("Symuluj słaby internet")
 				.setRequired(false)
 		),
-	channels: ["1037012798850486366"],
+	channels: [process.env.DEV_CHANNEL],
 	devOnly: true,
 
 	async execute(interaction: CommandInteraction<CacheType>) {

@@ -36,6 +36,7 @@
 		"puppeteer-extra": "^3.3.6",
 		"puppeteer-extra-plugin-stealth": "^2.11.2",
 		"time-stamp": "^2.2.0",
-		"tsx": "^3.12.3"
+		"tsx": "^3.12.3",
+		"url": "^0.11.2"
 	}
 }

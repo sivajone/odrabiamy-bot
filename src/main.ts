@@ -1,5 +1,5 @@
 import type { SlashCommandBuilder } from "@discordjs/builders";
-import { CacheType, Client, Collection, CommandInteraction } from "discord.js";
+import { CacheType, Client, Collection, CommandInteraction, GatewayIntentBits } from "discord.js";
 import fs from "fs-extra";
 import path from "path";
 import dotenv from "dotenv";
@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === "local") dotenv.config({ path: ".env-dev" });
 else if (process.env.NODE_ENV === "server") dotenv.config();
 
 // Setup bot
-const client = new Client({ intents: "Guilds" });
+const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 client.once("ready", () => {
 	// Setup healthcheck endpoint
 	const app = express();

@@ -123,7 +123,7 @@ export async function scrape(
 		// Login if not logged in or cookies expired
 		if (webPage.url() !== "https://odrabiamy.pl/moje") {
 			await webPage.click("[data-testid='login-button']");
-			await webPage.waitForNavigation();
+			await webPage.waitForSelector("#qa-login");
 			await webPage.type("input[type='email']", process.env.EMAIL);
 			await webPage.type("input[type='password']", process.env.PASSWORD);
 			await webPage.click("#qa-login");
