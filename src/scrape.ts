@@ -114,7 +114,7 @@ export async function scrape(
 			log("4.a cookies accept found", timer);
 
 			await cookiesAccept!.evaluate((node) => (node as HTMLButtonElement).click());
-			await webPage.waitForSelector(cookiesAcceptID, { hidden: true, timeout: 5000 });
+			await webPage.waitForSelector(cookiesAcceptPath, { hidden: true, timeout: 5000 });
 			log("4.b cookies accept clicked", timer);
 		} catch (error) {
 			log("4.a cookies accept not found or not clicked properly", timer);
