@@ -288,7 +288,7 @@ export async function scrape(
 			log("11.b solution loaded", timer);
 
 			// Wait for images to load
-			const solutionElement = await webPage.$("#qa-exercise");
+			const solutionElement = await webPage.$("[data-testid='solution']");
 			await solutionElement!.$$eval("img", async (imgs) => {
 				await Promise.all(
 					imgs.map((img) => {

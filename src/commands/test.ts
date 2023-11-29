@@ -126,9 +126,9 @@ export const command = {
 				results.set(i, true);
 			}
 
-			if (test.logIn) {
-				fs.copyFileSync(cookiesBackupPath, cookiesPath, fs.constants.COPYFILE_FICLONE);
-			}
+			// if (test.logIn) {
+			// 	fs.copyFileSync(cookiesBackupPath, cookiesPath, fs.constants.COPYFILE_FICLONE);
+			// }
 		}
 
 		// Restore cookies
