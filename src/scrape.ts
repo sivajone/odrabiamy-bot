@@ -109,8 +109,8 @@ export async function scrape(
 
 		try {
 			// Allow cookies
-			const cookiesAcceptID = "#qa-rodo-accept";
-			const cookiesAccept = await webPage.waitForSelector(cookiesAcceptID, { timeout: 5000 });
+			const cookiesAcceptPath= "[data-testid='cookies-accept']";
+			const cookiesAccept = await webPage.waitForSelector(cookiesAcceptPath, { timeout: 5000 });
 			log("4.a cookies accept found", timer);
 
 			await cookiesAccept!.evaluate((node) => (node as HTMLButtonElement).click());

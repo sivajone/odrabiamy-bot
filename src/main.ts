@@ -24,7 +24,7 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 client.once("ready", () => {
 	// Setup healthcheck endpoint
 	const app = express();
-	app.listen(3000, () => console.log(clc.green(`ready (${process.env.NODE_ENV})`)));
+	app.listen(3000, () => console.log(clc.green(`ready (${process.env.NODE_ENV}, ${process.env.npm_package_version})`)));
 
 	app.get("/", (_, res) => {
 		res.sendStatus(200);
