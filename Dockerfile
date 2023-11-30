@@ -11,7 +11,7 @@ WORKDIR /app
 
 # Install dependencies
 RUN apt-get update
-RUN apt-get satisfy chromium
+RUN apt-get satisfy -y chromium
 RUN apt-get install -y curl
 RUN apt-get install -y fonts-noto-color-emoji
 
