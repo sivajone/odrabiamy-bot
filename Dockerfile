@@ -28,7 +28,7 @@ libglib2.0-0 \
 libgtk-3-0 \
 libnspr4 \
 libnss3 \
-libpango-1.0-0
+libpango-1.0-0 \
 libpangocairo-1.0-0 \
 libstdc++6 \
 libx11-6 \
