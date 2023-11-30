@@ -34,7 +34,7 @@ export async function scrape(
   exercise: string,
   trailingDot: boolean,
   interaction: CommandInteraction<CacheType>,
-  // headless: boolean,
+  headless: boolean,
   throttleNetwork?: boolean
 ): Promise<ScrapeResult> {
   console.log(`\n------ ${timestamp("HH:mm:ss, DD.MM.YYYY")} ------`);
@@ -49,7 +49,7 @@ export async function scrape(
   const browser = await pup.use(stealthPlugin()).launch({
     // devtools: true,
     // slowMo: 100,
-    headless: "new",
+    headless: headless,
     executablePath: executablePath(),
     args: [
       `--window-size=${width},${height}`,

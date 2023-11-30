@@ -11,13 +11,13 @@ WORKDIR /app
 
 # Install dependencies
 RUN apt-get update
-RUN apt-get satisfy -y chromium
+RUN apt-get install -y chromium
 RUN apt-get install -y curl
 RUN apt-get install -y fonts-noto-color-emoji
 
 # Set environment variables
-# ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
-# ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
 ENV NODE_ENV=server
 
 # Install packages
