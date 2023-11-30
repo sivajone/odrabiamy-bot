@@ -7,6 +7,7 @@ import path from "path";
 import async from "async";
 import timestamp from "time-stamp";
 import { __dirname } from "./utils";
+import UserAgent from 'user-agents';
 
 export enum ErrorType {
   UnhandledError,
@@ -41,8 +42,8 @@ export async function scrape(
   const timer = process.hrtime();
 
   // Setup browser
-  const width = 1200;
-  const height = 1200;
+  const width = 1200 + Math.floor(Math.random() * 100);
+  const height = 1200 + Math.floor(Math.random() * 100);
   const website = "https://odrabiamy.pl/";
   const cookiesPath = path.join(__dirname, "config/cookies.json");
 
@@ -80,6 +81,18 @@ export async function scrape(
     // Load page
     const [webPage] = await browser.pages();
 
+    const userAgent = new UserAgent([
+      /Firefox/,
+      {
+        deviceCategory: 'desktop',
+        platform: 'Win32',
+      },
+    ]);
+    const randomUserAgent = userAgent.toString();
+
+    await webPage.setUserAgent(randomUserAgent);
+
+
     if (!webPage) {
       return {
         error: new ScrapeError(
@@ -110,7 +123,7 @@ export async function scrape(
       log("2. cookies loaded: " + cookiesPath, timer);
     }
     await webPage.goto(website);
-    log("3. website loaded: " + webPage.url(), timer);
+    log("3. website loaded: " + webPage.url() + `(User agent: ${randomUserAgent})`, timer);
 
     try {
       // Allow cookies
